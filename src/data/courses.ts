@@ -1,0 +1,152 @@
+export type Course = {
+  slug: string;
+  name: string;
+  fullName: string;
+  level: "Undergraduate" | "Postgraduate" | "Diploma / Other";
+  duration: string;
+  category: string;
+  eligibility: string;
+  overview: string;
+  subjects: string[];
+  universities: string[];
+  modes: string[];
+};
+
+export const courses: Course[] = [
+  {
+    slug: "ba",
+    name: "BA",
+    fullName: "Bachelor of Arts",
+    level: "Undergraduate",
+    duration: "3 Years",
+    category: "Arts",
+    eligibility: "Usually 10+2 or equivalent from a recognized board. Students should verify eligibility from the university.",
+    overview: "BA is an undergraduate arts programme suitable for students interested in humanities, social sciences, languages, public administration, history, political science, sociology, education, and related fields.",
+    subjects: ["English", "Hindi", "History", "Political Science", "Sociology", "Economics", "Education"],
+    universities: ["Subharti University"],
+    modes: ["Distance Education", "Regular Education"],
+  },
+  {
+    slug: "bcom",
+    name: "B.Com",
+    fullName: "Bachelor of Commerce",
+    level: "Undergraduate",
+    duration: "3 Years",
+    category: "Commerce",
+    eligibility: "Usually 10+2 or equivalent from a recognized board.",
+    overview: "B.Com is an undergraduate commerce programme for students interested in accounting, finance, taxation, business studies, economics, and commerce-related careers.",
+    subjects: ["Accounting", "Business Studies", "Economics", "Taxation", "Business Law", "Finance"],
+    universities: ["Subharti University"],
+    modes: ["Distance Education", "Regular Education"],
+  },
+  {
+    slug: "bba",
+    name: "BBA",
+    fullName: "Bachelor of Business Administration",
+    level: "Undergraduate",
+    duration: "3 Years",
+    category: "Management",
+    eligibility: "Usually 10+2 or equivalent from a recognized board.",
+    overview: "BBA is a management-focused undergraduate programme for students interested in business, management, entrepreneurship, marketing, finance, and corporate careers.",
+    subjects: ["Management", "Marketing", "Finance", "Human Resource Management", "Business Communication", "Entrepreneurship"],
+    universities: ["Subharti University"],
+    modes: ["Distance Education", "Regular Education"],
+  },
+  {
+    slug: "bca",
+    name: "BCA",
+    fullName: "Bachelor of Computer Applications",
+    level: "Undergraduate",
+    duration: "3 Years",
+    category: "Computer Applications",
+    eligibility: "Usually 10+2 or equivalent. Some universities may require mathematics or computer-related subjects.",
+    overview: "BCA is an undergraduate computer applications programme for students interested in software, programming, databases, web development, and IT careers.",
+    subjects: ["Programming", "Database Management", "Web Development", "Computer Networks", "Operating Systems", "Software Engineering"],
+    universities: ["Subharti University"],
+    modes: ["Distance Education", "Regular Education"],
+  },
+  {
+    slug: "bsc",
+    name: "B.Sc",
+    fullName: "Bachelor of Science",
+    level: "Undergraduate",
+    duration: "3 Years",
+    category: "Science",
+    eligibility: "Usually 10+2 science or equivalent from a recognized board.",
+    overview: "B.Sc is an undergraduate science programme for students interested in science, technical subjects, research, teaching, laboratory work, and subject-specific career paths.",
+    subjects: ["Physics", "Chemistry", "Mathematics", "Botany", "Zoology", "Computer Science", "Agriculture"],
+    universities: ["Subharti University"],
+    modes: ["Distance Education", "Regular Education"],
+  },
+  {
+    slug: "ma",
+    name: "MA",
+    fullName: "Master of Arts",
+    level: "Postgraduate",
+    duration: "2 Years",
+    category: "Arts",
+    eligibility: "Usually graduation or equivalent from a recognized university.",
+    overview: "MA is a postgraduate arts programme for students who want advanced knowledge in humanities, languages, education, social sciences, and related fields.",
+    subjects: ["English", "Hindi", "History", "Political Science", "Sociology", "Economics", "Education", "Sanskrit", "Fine Arts", "Drawing", "Home Science"],
+    universities: ["Subharti University"],
+    modes: ["Distance Education", "Regular Education"],
+  },
+  {
+    slug: "mcom",
+    name: "M.Com",
+    fullName: "Master of Commerce",
+    level: "Postgraduate",
+    duration: "2 Years",
+    category: "Commerce",
+    eligibility: "Usually graduation in commerce or related field from a recognized university.",
+    overview: "M.Com is a postgraduate commerce programme focused on accounting, finance, taxation, economics, business management, and commerce research.",
+    subjects: ["Advanced Accounting", "Finance", "Business Economics", "Taxation", "Corporate Law", "Research Methodology"],
+    universities: ["Subharti University"],
+    modes: ["Distance Education", "Regular Education"],
+  },
+  {
+    slug: "mba",
+    name: "MBA",
+    fullName: "Master of Business Administration",
+    level: "Postgraduate",
+    duration: "2 Years",
+    category: "Management",
+    eligibility: "Usually graduation or equivalent from a recognized university.",
+    overview: "MBA is a postgraduate management programme for students and working professionals interested in management, business leadership, finance, marketing, HR, operations, and entrepreneurship.",
+    subjects: ["Finance", "Human Resource Management", "Marketing", "Operations", "International Business", "IT Management"],
+    universities: ["Subharti University"],
+    modes: ["Distance Education", "Regular Education"],
+  },
+  {
+    slug: "mca",
+    name: "MCA",
+    fullName: "Master of Computer Applications",
+    level: "Postgraduate",
+    duration: "2 Years",
+    category: "Computer Applications",
+    eligibility: "Usually graduation or equivalent. Eligibility may vary by university.",
+    overview: "MCA is a postgraduate computer applications programme focused on software development, programming, databases, cloud computing, IT systems, and application development.",
+    subjects: ["Advanced Programming", "Database Systems", "Web Technologies", "Software Engineering", "Cloud Computing", "Data Structures"],
+    universities: ["Subharti University"],
+    modes: ["Distance Education", "Regular Education"],
+  },
+  {
+    slug: "msc",
+    name: "M.Sc",
+    fullName: "Master of Science",
+    level: "Postgraduate",
+    duration: "2 Years",
+    category: "Science",
+    eligibility: "Usually graduation in science or related field from a recognized university.",
+    overview: "M.Sc is a postgraduate science programme for students who want advanced knowledge in science, research, teaching, technical, or subject-specific careers.",
+    subjects: ["Physics", "Chemistry", "Mathematics", "Botany", "Zoology", "Computer Science", "Agriculture", "Interior, Fashion, Graphic or Jewellery depending on university"],
+    universities: ["Subharti University"],
+    modes: ["Distance Education", "Regular Education"],
+  },
+];
+
+export const extraCourses = {
+  undergraduate: ["B.Sc", "B.Sc Agriculture", "B.Sc Yoga", "B.Sc PCM", "BA Fine Arts", "BA Yoga", "BA LLB", "B.Com LLB", "B.Tech Computer Science", "B.Voc"],
+  postgraduate: ["M.Sc Agriculture", "MA English", "MA Hindi", "MA History", "MA Economics", "MA Education", "MA Mathematics", "MA Sanskrit", "MA Fine Arts", "MA Drawing", "MA Home Science", "M.Tech Computer Science", "M.Voc", "LLM"],
+  diploma: ["Diploma in Civil Engineering", "Diploma in Electronics Engineering", "Diploma in Electrical Engineering", "Diploma in Mechanical Engineering", "Diploma in Computer Science Engineering", "PGDCA", "BLib", "MLib"],
+};

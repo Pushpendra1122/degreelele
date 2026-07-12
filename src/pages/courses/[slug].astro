@@ -1,0 +1,54 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Breadcrumb from "../../components/Breadcrumb.astro";
+import DisclaimerBox from "../../components/DisclaimerBox.astro";
+import SectionTitle from "../../components/SectionTitle.astro";
+import { courses } from "../../data/courses";
+
+export function getStaticPaths() {
+  return courses.map((course) => ({ params: { slug: course.slug }, props: { course } }));
+}
+
+const { course } = Astro.props;
+---
+
+<BaseLayout title={`${course.name} Course Information - Degreelele`} description={`${course.fullName} course information including duration, eligibility, subjects, learning modes and universities offering the course.`}>
+  <Breadcrumb items={[{ label: "Courses", href: "/courses" }, { label: course.name }]} />
+  <section class="container-page py-10">
+    <span class="badge">{course.level}</span>
+    <h1 class="mt-4 text-4xl font-black text-brand-navy md:text-5xl">{course.name} Course Information</h1>
+    <p class="mt-4 max-w-3xl text-lg leading-8 text-slate-600">{course.fullName}</p>
+  </section>
+  <section class="container-page grid gap-8 pb-16 lg:grid-cols-[0.75fr_1.25fr]">
+    <aside class="surface h-fit p-6">
+      <dl class="grid gap-4 text-sm">
+        <div><dt class="font-bold text-slate-900">Full name</dt><dd class="mt-1">{course.fullName}</dd></div>
+        <div><dt class="font-bold text-slate-900">Level</dt><dd class="mt-1">{course.level}</dd></div>
+        <div><dt class="font-bold text-slate-900">Duration</dt><dd class="mt-1">{course.duration}</dd></div>
+        <div><dt class="font-bold text-slate-900">Eligibility</dt><dd class="mt-1 leading-7">{course.eligibility}</dd></div>
+        <div><dt class="font-bold text-slate-900">Learning modes</dt><dd class="mt-1">{course.modes.join(", ")}</dd></div>
+      </dl>
+    </aside>
+    <div class="grid gap-8">
+      <section class="surface p-6">
+        <SectionTitle title="Overview" />
+        <p class="leading-8 text-slate-600">{course.overview}</p>
+      </section>
+      <section class="surface p-6">
+        <SectionTitle title="Who Should Choose This Course?" />
+        <p class="leading-8 text-slate-600">This course can be considered by students who want structured knowledge in {course.category.toLowerCase()} and want to compare programme details, duration, eligibility and learning mode before contacting a university.</p>
+      </section>
+      <section class="surface p-6">
+        <SectionTitle title={course.level === "Postgraduate" ? "Common Subjects / Specializations" : "Common Subjects"} />
+        <div class="flex flex-wrap gap-2">{course.subjects.map((subject) => <span class="badge">{subject}</span>)}</div>
+      </section>
+      <section class="surface p-6">
+        <SectionTitle title="Universities Offering This Course" />
+        <ul class="grid gap-3">
+          {course.universities.map((university) => <li><a href="/universities/subharti-university" class="font-semibold">View University Information - {university}</a></li>)}
+        </ul>
+      </section>
+      <DisclaimerBox />
+    </div>
+  </section>
+</BaseLayout>

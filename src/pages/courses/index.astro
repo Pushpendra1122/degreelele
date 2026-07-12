@@ -1,0 +1,35 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Breadcrumb from "../../components/Breadcrumb.astro";
+import SectionTitle from "../../components/SectionTitle.astro";
+import CourseCard from "../../components/CourseCard.astro";
+import { courses, extraCourses } from "../../data/courses";
+---
+
+<BaseLayout title="Courses - Degreelele" description="Explore undergraduate, postgraduate, diploma and professional course information.">
+  <Breadcrumb items={[{ label: "Courses" }]} />
+  <section class="container-page py-10">
+    <h1 class="text-4xl font-black text-brand-navy md:text-5xl">Courses</h1>
+    <p class="mt-4 max-w-3xl text-lg leading-8 text-slate-600">Explore undergraduate, postgraduate, diploma, and professional course information.</p>
+  </section>
+  <section class="container-page pb-12">
+    <SectionTitle title="Undergraduate Courses" />
+    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      {courses.filter((course) => course.level === "Undergraduate").map((course) => <CourseCard course={course} />)}
+      {extraCourses.undergraduate.map((name) => <div class="surface p-5 font-bold text-brand-navy">{name}</div>)}
+    </div>
+  </section>
+  <section class="container-page pb-12">
+    <SectionTitle title="Postgraduate Courses" />
+    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      {courses.filter((course) => course.level === "Postgraduate").map((course) => <CourseCard course={course} />)}
+      {extraCourses.postgraduate.map((name) => <div class="surface p-5 font-bold text-brand-navy">{name}</div>)}
+    </div>
+  </section>
+  <section class="container-page pb-16">
+    <SectionTitle title="Diploma / Other Courses" />
+    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      {extraCourses.diploma.map((name) => <div class="surface p-5 font-bold text-brand-navy">{name}</div>)}
+    </div>
+  </section>
+</BaseLayout>

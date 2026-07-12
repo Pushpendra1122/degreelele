@@ -1,0 +1,23 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Breadcrumb from "../../components/Breadcrumb.astro";
+import SectionTitle from "../../components/SectionTitle.astro";
+import UniversityCard from "../../components/UniversityCard.astro";
+import { universities } from "../../data/universities";
+---
+
+<BaseLayout title="Universities - Degreelele" description="Explore universities and their available course information on Degreelele.">
+  <Breadcrumb items={[{ label: "Universities" }]} />
+  <section class="container-page py-10">
+    <h1 class="text-4xl font-black text-brand-navy md:text-5xl">Universities</h1>
+    <p class="mt-4 max-w-3xl text-lg leading-8 text-slate-600">Explore universities and their available courses.</p>
+  </section>
+  <section class="container-page pb-16">
+    <SectionTitle title="University Listings" />
+    <div class="grid gap-5 md:grid-cols-3">
+      {universities.map((university) => <UniversityCard university={university} />)}
+      <UniversityCard placeholder />
+      <UniversityCard placeholder />
+    </div>
+  </section>
+</BaseLayout>

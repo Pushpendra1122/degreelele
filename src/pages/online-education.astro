@@ -1,0 +1,22 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Breadcrumb from "../components/Breadcrumb.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+import DisclaimerBox from "../components/DisclaimerBox.astro";
+import { courses } from "../data/courses";
+---
+
+<BaseLayout title="Online Education - Degreelele" description="Online education information including learning platforms, online and distance differences, popular courses and things to check.">
+  <Breadcrumb items={[{ label: "Online Education" }]} />
+  <section class="container-page py-10">
+    <h1 class="text-4xl font-black text-brand-navy md:text-5xl">Online Education</h1>
+    <p class="mt-4 max-w-3xl text-lg leading-8 text-slate-600">Online education uses digital platforms, learning management systems, recorded lectures, live classes, digital study material, and online academic support. Course delivery and examination rules depend on the university.</p>
+  </section>
+  <section class="container-page grid gap-6 pb-16 md:grid-cols-2">
+    <article class="surface p-6"><SectionTitle title="What Is Online Education?" /><p class="leading-8 text-slate-600">It is a digital-first learning mode where classes, content and student support may be delivered through online systems.</p></article>
+    <article class="surface p-6"><SectionTitle title="Online vs Distance" /><p class="leading-8 text-slate-600">Online education usually depends more on digital classes and LMS access, while distance education may combine self-study material, academic support and scheduled examinations.</p></article>
+    <article class="surface p-6"><SectionTitle title="Popular Online Courses" /><div class="flex flex-wrap gap-2">{courses.map((course) => <a href={`/courses/${course.slug}`} class="badge">{course.name}</a>)}</div></article>
+    <article class="surface p-6"><SectionTitle title="Things To Check" /><ul class="grid gap-3 text-slate-600"><li>University recognition and programme approval</li><li>Class delivery method and LMS access</li><li>Examination process and support</li><li>Fees, eligibility and admission rules</li></ul></article>
+    <div class="md:col-span-2"><DisclaimerBox /></div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,58 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Breadcrumb from "../../components/Breadcrumb.astro";
+import SectionTitle from "../../components/SectionTitle.astro";
+import DisclaimerBox from "../../components/DisclaimerBox.astro";
+import CourseTable from "../../components/CourseTable.astro";
+import { courses } from "../../data/courses";
+import { universities } from "../../data/universities";
+
+const university = universities[0];
+const listedCourses = courses;
+---
+
+<BaseLayout title="Subharti University Course Information - Degreelele" description="Explore Subharti University distance education course information, duration, learning mode and general eligibility.">
+  <Breadcrumb items={[{ label: "Universities", href: "/universities" }, { label: "Subharti University" }]} />
+  <section class="container-page py-10">
+    <h1 class="text-4xl font-black text-brand-navy md:text-5xl">Subharti University Course Information</h1>
+    <p class="mt-4 max-w-3xl text-lg leading-8 text-slate-600">Explore distance education programmes and course information related to Subharti University.</p>
+  </section>
+  <section class="container-page grid gap-8 pb-16 lg:grid-cols-[0.9fr_1.1fr]">
+    <div class="surface p-6">
+      <SectionTitle title="University Overview" />
+      <p class="leading-8 text-slate-600">Subharti University is shown on Degreelele as an education information listing. Students can explore available programme information, course duration, learning mode, and general eligibility details.</p>
+      <dl class="mt-6 grid gap-3 text-sm">
+        <div><dt class="inline font-bold">University Name:</dt> <dd class="inline">{university.name}</dd></div>
+        <div><dt class="inline font-bold">Location:</dt> <dd class="inline">{university.location}</dd></div>
+        <div><dt class="inline font-bold">Learning Mode:</dt> <dd class="inline">Distance Education</dd></div>
+        <div><dt class="inline font-bold">Course Levels:</dt> <dd class="inline">Undergraduate and Postgraduate</dd></div>
+        <div><dt class="inline font-bold">Categories:</dt> <dd class="inline">{university.categories.join(", ")}</dd></div>
+      </dl>
+      <div class="mt-6"><DisclaimerBox text="Please verify recognition, approvals, fees, and course availability from the official university and UGC-DEB before admission." /></div>
+    </div>
+    <div>
+      <SectionTitle title="Courses Offered" />
+      <CourseTable rows={listedCourses} />
+    </div>
+  </section>
+  <section class="bg-white py-14">
+    <div class="container-page">
+      <SectionTitle title="Course Categories" />
+      <div class="grid gap-5 md:grid-cols-5">
+        {[
+          ["Arts", "BA, MA"],
+          ["Commerce", "B.Com, M.Com"],
+          ["Management", "BBA, MBA"],
+          ["Computer Applications", "BCA, MCA"],
+          ["Science", "B.Sc, M.Sc"],
+        ].map(([title, text]) => <article class="surface p-5"><h3 class="font-bold text-brand-navy">{title}</h3><p class="mt-2 text-slate-600">{text}</p></article>)}
+      </div>
+    </div>
+  </section>
+  <section class="container-page py-14">
+    <SectionTitle title="Benefits of Distance Education" />
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+      {["Flexible study schedule", "Suitable for working professionals", "Continue education from home", "Helpful for students who missed regular college", "Course information available in one place"].map((item) => <div class="surface p-5 font-semibold text-brand-navy">{item}</div>)}
+    </div>
+  </section>
+</BaseLayout>

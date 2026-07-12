@@ -1,0 +1,37 @@
+---
+import { site } from "../data/site";
+
+const nav = [
+  ["Home", "/"],
+  ["Universities", "/universities"],
+  ["Courses", "/courses"],
+  ["Distance Education", "/distance-education"],
+  ["Open Schooling", "/open-schooling"],
+  ["About", "/about"],
+  ["Contact", "/contact"],
+];
+---
+
+<header class="sticky top-0 z-40 border-b border-slate-200 bg-white/95 backdrop-blur">
+  <div class="container-page flex min-h-20 items-center justify-between gap-6">
+    <a href="/" class="text-2xl font-black text-brand-navy" aria-label="Degreelele home">{site.name}</a>
+    <button id="menuButton" class="rounded-md border border-slate-300 px-4 py-2.5 text-base font-semibold text-brand-navy md:hidden" aria-expanded="false" aria-controls="siteNav">Menu</button>
+    <nav id="siteNav" class="hidden absolute left-0 right-0 top-20 border-b border-slate-200 bg-white px-5 py-5 shadow-lg md:static md:block md:border-0 md:bg-transparent md:p-0 md:shadow-none">
+      <ul class="flex flex-col gap-4 md:flex-row md:items-center md:gap-7">
+        {nav.map(([label, href]) => (
+          <li><a class="text-base font-semibold text-slate-700 hover:text-brand-blue" href={href}>{label}</a></li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const button = document.getElementById("menuButton");
+  const nav = document.getElementById("siteNav");
+  button?.addEventListener("click", () => {
+    const isOpen = !nav?.classList.contains("hidden");
+    nav?.classList.toggle("hidden");
+    button.setAttribute("aria-expanded", String(!isOpen));
+  });
+</script>

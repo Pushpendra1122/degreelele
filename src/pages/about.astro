@@ -1,0 +1,19 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Breadcrumb from "../components/Breadcrumb.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+import DisclaimerBox from "../components/DisclaimerBox.astro";
+---
+
+<BaseLayout title="About Degreelele - Degreelele" description="Learn about Degreelele, an education information platform for courses, universities, distance education, online education and open schooling.">
+  <Breadcrumb items={[{ label: "About" }]} />
+  <section class="container-page py-10">
+    <h1 class="text-4xl font-black text-brand-navy md:text-5xl">About Degreelele</h1>
+    <p class="mt-4 max-w-3xl text-lg leading-8 text-slate-600">Degreelele is an education information platform created to help students explore degree courses, universities, distance education, online education, and open schooling information in a simple way.</p>
+  </section>
+  <section class="container-page grid gap-6 pb-16 md:grid-cols-2">
+    <article class="surface p-6"><SectionTitle title="Mission" /><p class="leading-8 text-slate-600">Our mission is to make course and university information easy to understand for students, working professionals, and learners who want flexible education options.</p></article>
+    <article class="surface p-6"><SectionTitle title="What We Provide" /><ul class="grid gap-3 text-slate-600"><li>Course information</li><li>University-wise programme details</li><li>Distance education information</li><li>Online education information</li><li>Open schooling information</li><li>Basic guidance content</li></ul></article>
+    <div class="md:col-span-2"><DisclaimerBox text="Degreelele does not claim to be a university. All students should verify official details directly from the university, board, UGC-DEB, or relevant authority." /></div>
+  </section>
+</BaseLayout>

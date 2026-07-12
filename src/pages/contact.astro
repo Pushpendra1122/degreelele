@@ -1,0 +1,31 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Breadcrumb from "../components/Breadcrumb.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+import DisclaimerBox from "../components/DisclaimerBox.astro";
+import { site } from "../data/site";
+---
+
+<BaseLayout title="Contact Degreelele - Degreelele" description="Contact Degreelele for course and university information.">
+  <Breadcrumb items={[{ label: "Contact" }]} />
+  <section class="container-page py-10">
+    <h1 class="text-4xl font-black text-brand-navy md:text-5xl">Contact Degreelele</h1>
+    <p class="mt-4 max-w-3xl text-lg leading-8 text-slate-600">For course and university information, you can contact Degreelele. Please verify final admission and approval details from official sources before making a decision.</p>
+  </section>
+  <section class="container-page grid gap-6 pb-16 md:grid-cols-[0.8fr_1.2fr]">
+    <article class="surface p-6">
+      <SectionTitle title="Contact Information" />
+      <dl class="grid gap-4">
+        <div><dt class="font-bold">Phone</dt><dd class="mt-1">{site.phone}</dd></div>
+        <div><dt class="font-bold">Email</dt><dd class="mt-1">{site.email}</dd></div>
+        <div><dt class="font-bold">Location</dt><dd class="mt-1">{site.location}</dd></div>
+        <div><dt class="font-bold">Working hours</dt><dd class="mt-1">{site.hours}</dd></div>
+      </dl>
+    </article>
+    <div class="surface p-6">
+      <SectionTitle title="Information Only" />
+      <p class="leading-8 text-slate-600">Degreelele can help students understand course and university information. Phase 1 does not include an admission form, payment system, login or application workflow.</p>
+      <div class="mt-6"><DisclaimerBox /></div>
+    </div>
+  </section>
+</BaseLayout>

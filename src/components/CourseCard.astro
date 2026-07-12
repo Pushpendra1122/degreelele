@@ -1,0 +1,18 @@
+---
+const { course } = Astro.props;
+---
+
+<article class="surface flex h-full flex-col p-5">
+  <div class="mb-4 flex items-start justify-between gap-4">
+    <div>
+      <h3 class="text-3xl font-bold text-brand-navy">{course.name}</h3>
+      <p class="mt-2 text-base font-medium text-slate-600">{course.fullName}</p>
+    </div>
+    <span class="badge">{course.level === "Postgraduate" ? "PG" : "UG"}</span>
+  </div>
+  <dl class="mb-5 grid gap-2 text-base text-slate-600">
+    <div><dt class="inline font-semibold text-slate-900">Level:</dt> <dd class="inline">{course.level}</dd></div>
+    <div><dt class="inline font-semibold text-slate-900">Duration:</dt> <dd class="inline">{course.duration}</dd></div>
+  </dl>
+  <a href={`/courses/${course.slug}`} class="mt-auto text-lg font-semibold">View Course Details</a>
+</article>

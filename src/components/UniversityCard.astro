@@ -1,0 +1,35 @@
+---
+type University = {
+  name: string;
+  location: string;
+  modes: string[];
+  courses: string[];
+  description: string;
+  slug: string;
+};
+
+const fallbackUniversity: University = {
+  name: "University details coming soon",
+  location: "",
+  modes: ["Coming Soon"],
+  courses: [],
+  description: "Courses coming soon",
+  slug: "",
+};
+
+const { university: providedUniversity, placeholder = false } = Astro.props as { university?: University; placeholder?: boolean };
+const university = providedUniversity ?? fallbackUniversity;
+---
+
+<article class="surface h-full p-6">
+  <span class="badge">{placeholder ? "Coming Soon" : university.modes?.join(", ")}</span>
+  <h3 class="mt-4 text-2xl font-bold text-brand-navy">{placeholder ? "University details coming soon" : university.name}</h3>
+  <p class="mt-2 text-slate-600">{placeholder ? "Courses coming soon" : university.description}</p>
+  {!placeholder && (
+    <dl class="mt-5 grid gap-2 text-sm">
+      <div><dt class="inline font-semibold">Location:</dt> <dd class="inline">{university.location}</dd></div>
+      <div><dt class="inline font-semibold">Courses:</dt> <dd class="inline">{university.courses.map((c: string) => c.toUpperCase()).join(", ")}</dd></div>
+    </dl>
+  )}
+  {!placeholder && <a href={`/universities/${university.slug}`} class="mt-5 inline-block font-semibold">View Details</a>}
+</article>

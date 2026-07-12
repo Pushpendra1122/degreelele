@@ -1,0 +1,19 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Breadcrumb from "../components/Breadcrumb.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+import DisclaimerBox from "../components/DisclaimerBox.astro";
+---
+
+<BaseLayout title="Open Schooling Information - Degreelele" description="Open schooling information for Class 10 and Class 12 learners seeking flexible school-level education options.">
+  <Breadcrumb items={[{ label: "Open Schooling" }]} />
+  <section class="container-page py-10">
+    <h1 class="text-4xl font-black text-brand-navy md:text-5xl">Open Schooling Information</h1>
+    <p class="mt-4 max-w-3xl text-lg leading-8 text-slate-600">Open schooling can help students continue school-level education through flexible learning options. It is commonly explored by students who could not complete Class 10 or Class 12 through regular schooling.</p>
+  </section>
+  <section class="container-page grid gap-6 pb-16 md:grid-cols-2">
+    <article class="surface p-6"><SectionTitle title="Common Open Schooling Levels" /><div class="flex gap-3"><span class="badge">Class 10</span><span class="badge">Class 12</span></div></article>
+    <article class="surface p-6"><SectionTitle title="Who Can Consider Open Schooling?" /><ul class="grid gap-3 text-slate-600"><li>Students who failed in Class 10 or 12</li><li>Students who discontinued regular schooling</li><li>Working learners</li><li>Students needing flexible study mode</li></ul></article>
+    <div class="md:col-span-2"><DisclaimerBox text="Support and guidance may be available, but passing depends on student preparation, board rules, examination performance, and official evaluation. Students should verify board recognition and rules before enrollment." /></div>
+  </section>
+</BaseLayout>

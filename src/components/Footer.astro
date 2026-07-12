@@ -1,0 +1,37 @@
+---
+import { courses } from "../data/courses";
+import { site } from "../data/site";
+---
+
+<footer class="mt-20 bg-brand-navy text-white">
+  <div class="container-page grid gap-8 py-12 md:grid-cols-4">
+    <div>
+      <h2 class="text-2xl font-black">{site.name}</h2>
+      <p class="mt-3 text-sm leading-7 text-slate-200">Distance, online and regular education information in one place.</p>
+    </div>
+    <div>
+      <h3 class="font-bold">Quick Links</h3>
+      <ul class="mt-3 grid gap-2 text-sm text-slate-200">
+        <li><a class="text-slate-200 hover:text-white" href="/universities">Universities</a></li>
+        <li><a class="text-slate-200 hover:text-white" href="/courses">Courses</a></li>
+        <li><a class="text-slate-200 hover:text-white" href="/about">About</a></li>
+        <li><a class="text-slate-200 hover:text-white" href="/contact">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="font-bold">Popular Courses</h3>
+      <ul class="mt-3 grid grid-cols-2 gap-2 text-sm">
+        {courses.slice(0, 8).map((course) => <li><a class="text-slate-200 hover:text-white" href={`/courses/${course.slug}`}>{course.name}</a></li>)}
+      </ul>
+    </div>
+    <div>
+      <h3 class="font-bold">Contact</h3>
+      <p class="mt-3 text-sm leading-7 text-slate-200">{site.phone}<br />{site.email}<br />{site.location}</p>
+    </div>
+  </div>
+  <div class="border-t border-white/15">
+    <div class="container-page py-5 text-sm leading-7 text-slate-200">
+      Degreelele is an independent education information platform. Course, university, approval, fee, and admission details should be verified from official sources.
+    </div>
+  </div>
+</footer>
